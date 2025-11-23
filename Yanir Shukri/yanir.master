@@ -9,6 +9,28 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+
+    <center>
+        <table >
+          <tr>
+              <th>
+                  עמודים
+              </th>
+              <td>
+                   
+              </td>
+          </tr>
+        </table> 
+    </center>
+
+
+
+
+
+
+
+
+
      <h1>yanir's website</h1>
   <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
        

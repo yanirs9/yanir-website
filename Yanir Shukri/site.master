@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html lang="he">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>אתר לדוגמה</title>
+</head>
+<body>
+    <form runat="server">
+        <div style="background-color:#eee;padding:10px;">
+            <a href="Register.aspx">הרשמה</a> |
+            <a href="Logout.aspx">יציאה</a>
+        </div>
+
+        <div style="padding:20px;">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+    </form>
+</body>
+</html>

@@ -1,7 +1,8 @@
-﻿<%@ Page Title="יציאה" Language="C#" MasterPageFile="~/Site.Master"
-    AutoEventWireup="true" CodeBehind="Logout.aspx.cs" Inherits="MySite.Logout" %>
-
+﻿<%@ Page Title="יציאה" Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeFile="logout.aspx.cs" Inherits="MySite.Logout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>התנתקת מהמערכת</h2>
-    <p>תודה ולהתראות!</p>
+    <div style="text-align:center; padding: 50px;">
+        <h2>התנתקת מהמערכת</h2>
+        <p>תודה ולהתראות!</p>
+        <a href="Default.aspx">חזור לדף הבית</a>
+    </div>
 </asp:Content>

@@ -25,7 +25,7 @@
         <table class="main-table">
             <tr>
                 <td colspan="2" class="header-cell">
-                    <h1>פרויקט גמר - מערכת ניהול משתמשים</h1>
+                    <h1>האתר של יניר</h1>
                 </td>
             </tr>
 
@@ -40,7 +40,8 @@
                     <a href="SearchSimple.aspx" class="nav-item"><img src="icons/search.png" />חיפוש פשוט</a>
                     <a href="SearchComplex.aspx" class="nav-item"><img src="icons/search-plus.png" />חיפוש מורכב</a>
                     <a href="Update.aspx" class="nav-item"><img src="icons/edit.png" />עדכון פרטים</a>
-                    <a href="Logout.aspx" class="nav-item"><img src="icons/exit.png" />התנתקות</a>
+                    <a href="Login.aspx" class="nav-item"><img src="icons/key.png" /> התחברות</a>
+                     <a href="Logout.aspx" class="nav-item"><img src="icons/exit.png" />התנתקות</a>
                 </td>
 
                 <td class="content-cell">
@@ -51,7 +52,7 @@
 
             <tr>
                 <td colspan="2" class="footer-cell">
-                    <marquee scrollamount="5">ברוכים הבאים לאתר שלי - עוצב על ידי יניר שוקרי &copy; 2026</marquee>
+                    <marquee scrollamount="5">ברוכים הבאים לאתר שלי - עוצב על ידי יניר שקרי &copy; </marquee>
                 </td>
             </tr>
         </table>

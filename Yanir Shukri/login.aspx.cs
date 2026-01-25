@@ -1,10 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace MySite
 {
@@ -14,17 +9,17 @@ namespace MySite
         {
         }
 
+        // זו הפונקציה שהייתה חסרה וגרמה לשגיאה
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            // בדיקה פשוטה לצורך בדיקת התיקון
-            if (txtUsername.Text == "admin" && txtPassword.Text == "1234")
+            if (txtEmail.Text == "admin@gmail.com" && txtPassword.Text == "123456")
             {
-                Session["user"] = txtUsername.Text;
+                Session["user"] = txtEmail.Text;
                 Response.Redirect("Default.aspx");
             }
             else
             {
-                lblLoginMessage.Text = "פרטים שגויים!";
+                lblLoginMessage.Text = "שם משתמש או סיסמה שגויים";
             }
         }
     }

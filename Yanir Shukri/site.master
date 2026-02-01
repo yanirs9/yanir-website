@@ -4,76 +4,92 @@
 <html lang="he" dir="rtl">
 <head runat="server">
     <meta charset="utf-8" />
-    <title>האתר של יניר</title>
+    <title>Yanir Elite System</title>
     <style>
-       
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%; 
-            width: 100%;
-            background-color: #f0f2f5;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary-purple: #a29bfe; 
+            --neon-purple: #6c5ce7;
+            --neon-red: #ff7675; /* צבע אדום לגלואו של היציאה */
+            --deep-navy: #0f172a;
+            --menu-bg: #1e293b;
+            --text-gray: #94a3b8;
         }
 
-
-        .main-table {
-            width: 100%; 
-            min-height: 100vh; 
-            border-collapse: collapse;
-            background-color: white;
-            border: none; 
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #0f172a; color: #f8fafc;
         }
+
+        .main-table { width: 100%; height: 100vh; border-collapse: collapse; }
 
         .header-cell {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            height: 65px; padding: 0 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-       
+        .header-cell h1 { margin: 0; font-size: 20px; letter-spacing: 2px; color: var(--primary-purple); }
+
         .menu-cell {
-            width: 220px;
-            vertical-align: top;
-            background-color: #ecf0f1;
-            border-left: 1px solid #bdc3c7;
-            padding: 15px;
+            width: 200px; vertical-align: top;
+            background-color: var(--menu-bg); padding: 20px 10px;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.3);
         }
 
-        .content-cell {
-            padding: 30px;
-            vertical-align: top;
-            width: auto; 
-        }
-
-        .footer-cell {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-
-      
+        /* עיצוב כללי לכל פריטי התפריט */
         .nav-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
-            border-bottom: 1px solid #bdc3c7;
-            transition: 0.3s;
+            display: flex; align-items: center;
+            padding: 14px 18px; margin-bottom: 8px;
+            text-decoration: none; color: var(--text-gray);
+            font-weight: 500; border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-item:hover {
-            background-color: #dcdde1;
+            background: rgba(108, 92, 231, 0.1);
+            color: #ffffff;
+            transform: translateX(-5px);
         }
 
-        .nav-item img {
-            width: 20px;
-            height: 20px;
-            margin-left: 10px;
+        /* פס תאורה סגול (ברירת מחדל) */
+        .nav-item::before {
+            content: ""; position: absolute; right: 0; height: 0%; width: 4px;
+            background: var(--neon-purple); transition: 0.3s; border-radius: 4px;
+        }
+
+        .nav-item:hover::before { height: 60%; }
+
+        .nav-item img { width: 18px; height: 18px; margin-left: 12px; filter: grayscale(1); transition: 0.3s; pointer-events: none; }
+
+        /* גלואו סגול לאייקונים רגילים */
+        .nav-item:hover img { filter: grayscale(0) drop-shadow(0 0 8px var(--neon-purple)); }
+
+        /* --- עיצוב מיוחד לכפתור היציאה (גלואו אדום) --- */
+        .logout-item:hover {
+            background: rgba(255, 118, 117, 0.1) !important;
+            color: #ff7675 !important;
+        }
+
+        .logout-item::before {
+            background: var(--neon-red) !important;
+        }
+
+        .logout-item:hover img { 
+            filter: grayscale(0) drop-shadow(0 0 10px var(--neon-red)) !important; 
+        }
+
+        .content-cell {
+            padding: 40px; vertical-align: top;
+            background-color: #ffffff; color: #1e293b;
+            border-radius: 30px 0 0 0;
+        }
+
+        .footer-cell {
+            background-color: var(--deep-navy); color: var(--text-gray);
+            text-align: center; padding: 12px; font-size: 11px;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
@@ -83,34 +99,37 @@
         <table class="main-table">
             <tr>
                 <td colspan="2" class="header-cell">
-                    <h1>האתר של יניר</h1>
+                    <h1>YANIR <span style="font-weight: 300; color: white;">PREMIUM</span></h1>
                 </td>
             </tr>
-
             <tr>
                 <td class="menu-cell">
-                    <a href="Default.aspx" class="nav-item"><img src="icons/home.png" />בית</a>
-                    <a href="About.aspx" class="nav-item"><img src="icons/info.png" />אודות</a>
-                    <a href="Gallery.aspx" class="nav-item"><img src="icons/image.png" />גלריה</a>
-                    <a href="Register.aspx" class="nav-item"><img src="icons/user-plus.png" />הרשמה</a>
-                    <a href="Login.aspx" class="nav-item"><img src="icons/key.png" />התחברות</a>
-                    <a href="Admin.aspx" class="nav-item"><img src="icons/lock.png" />ניהול</a>
-                    <a href="SearchSimple.aspx" class="nav-item"><img src="icons/search.png" />חיפוש פשוט</a>
-                    <a href="SearchComplex.aspx" class="nav-item"><img src="icons/search-plus.png" />חיפוש מורכב</a>
-                    <a href="Update.aspx" class="nav-item"><img src="icons/edit.png" />עדכון פרטים</a>
-                    <a href="Logout.aspx" class="nav-item"><img src="icons/exit.png" />התנתקות</a>
+                    <a href="Default.aspx" class="nav-item">
+                        <img src="icons/home.png" /> דף הבית
+                    </a>
+                    <a href="Register.aspx" class="nav-item">
+                        <img src="icons/user.png" /> הרשמה
+                    </a>
+                    <a href="Login.aspx" class="nav-item">
+                        <img src="icons/key.png" /> כניסה
+                    </a>
+                    <a href="Gallery.aspx" class="nav-item">
+                        <img src="icons/image.png" /> גלריה
+                    </a>
+                    
+                    <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px;">
+                        <a href="Logout.aspx" class="nav-item logout-item">
+                            <img src="icons/exit.png" /> יציאה
+                        </a>
+                    </div>
                 </td>
-
                 <td class="content-cell">
-                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                        <%-- כאן יופיע התוכן של כל דף --%>
-                    </asp:ContentPlaceHolder>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
                 </td>
             </tr>
-
             <tr>
                 <td colspan="2" class="footer-cell">
-                    <marquee scrollamount="10">designed by yanir &copy; </marquee>
+                    SYSTEM INTERFACE &copy; 2026 | YANIR SHUKRI
                 </td>
             </tr>
         </table>

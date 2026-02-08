@@ -91,6 +91,10 @@
             0% { transform: translate(-100%, 0); }
             100% { transform: translate(100%, 0); }
         }
+
+        /* עיצוב מיוחד לפריט מנהל */
+        .admin-item { color: #fab1a0 !important; }
+        .admin-item:hover { background: rgba(250, 177, 160, 0.1) !important; }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
@@ -104,12 +108,17 @@
             </tr>
             <tr>
                 <td class="menu-cell">
-                    <%-- התיקון כאן: הפנייה ל-Home.aspx במקום Default.aspx --%>
                     <a href="Home.aspx" class="nav-item"><i class="fa-solid fa-house"></i> דף הבית</a>
                     <a href="Register.aspx" class="nav-item"><i class="fa-solid fa-user-plus"></i> הרשמה</a>
                     <a href="Login.aspx" class="nav-item"><i class="fa-solid fa-key"></i> כניסה</a>
                     <a href="Gallery.aspx" class="nav-item"><i class="fa-solid fa-images"></i> גלריה</a>
                     <a href="About.aspx" class="nav-item"><i class="fa-solid fa-circle-info"></i> אודות</a>
+
+                    <%-- בדיקת הרשאת מנהל - נוסף כאן מבלי לשנות את הקיים --%>
+                    <% if (Session["role"] != null && Session["role"].ToString() == "admin") { %>
+                        <a href="Admin.aspx" class="nav-item admin-item"><i class="fa-solid fa-user-shield"></i> דף הנהלה</a>
+                    <% } %>
+
                     <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px;">
                         <a href="Logout.aspx" class="nav-item logout-item"><i class="fa-solid fa-right-from-bracket"></i> יציאה</a>
                     </div>

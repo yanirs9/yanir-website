@@ -11,7 +11,8 @@ namespace MySite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            // תיקון שגיאה CS0176 - גישה דרך שם המחלקה ValidationSettings
+            System.Web.UI.ValidationSettings.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
         }
 
         protected void BtnRegister_Click(object sender, EventArgs e)
@@ -31,7 +32,6 @@ namespace MySite
                 {
                     conn.Open();
 
-                    // בדיקת כפל משתמשים
                     string checkSql = "SELECT COUNT(*) FROM tUsers WHERE txtEmail = @email";
                     SqlCommand checkCmd = new SqlCommand(checkSql, conn);
                     checkCmd.Parameters.AddWithValue("@email", txtEmail.Text);
@@ -45,7 +45,6 @@ namespace MySite
                     }
                     else
                     {
-                        // הכנסת משתמש חדש
                         string sql = "INSERT INTO tUsers (txtFirstName, txtLastName, txtEmail, txtPassword, txtPhone, txtAge) " +
                                      "VALUES (@fName, @lName, @email, @pass, @phone, @age)";
 
@@ -55,15 +54,13 @@ namespace MySite
                         cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                         cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
                         cmd.Parameters.AddWithValue("@phone", fullPhone);
-                        cmd.Parameters.AddWithValue("@age", int.Parse(txtAge.Text));
+                        cmd.Parameters.AddWithValue("@age", txtAge.Text);
 
                         cmd.ExecuteNonQuery();
 
-                        lblMessage.Text = "נרשמת בהצלחה! מיד תועבר לדף כניסה...";
+                        lblMessage.Text = "נרשמת בהצלחה!";
                         lblMessage.ForeColor = Color.Green;
-
-                        // מעבר אוטומטי לדף כניסה אחרי 2 שניות
-                        Response.AddHeader("REFRESH", "2;URL=Login.aspx");
+                        Response.AddHeader("REFRESH", "2;URL=Home.aspx");
                     }
                 }
             }

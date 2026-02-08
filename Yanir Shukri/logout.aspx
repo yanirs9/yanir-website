@@ -3,6 +3,6 @@
     <div style="text-align:center; padding: 50px;">
         <h2>התנתקת מהמערכת</h2>
         <p>תודה ולהתראות!</p>
-        <a href="Default.aspx">חזור לדף הבית</a>
+        <a href="Home.aspx">חזור לדף הבית</a>
     </div>
 </asp:Content>

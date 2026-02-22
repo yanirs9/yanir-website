@@ -20,5 +20,13 @@ namespace MySite
             Session.Abandon();
             Response.Redirect("Login.aspx");
         }
+
+        // פונקציית החיפוש החדשה
+        protected void BtnSearch_Click(object sender, EventArgs e)
+        {
+            string fName = txtSearchFName.Text;
+            string lName = txtSearchLName.Text;
+            Response.Redirect("ViewUsers.aspx?fname=" + fName + "&lname=" + lName);
+        }
     }
 }

@@ -35,11 +35,23 @@
             transform: translateY(-5px);
         }
         .admin-card h3 { color: #6c5ce7; margin-bottom: 10px; }
+        
+        /* עיצוב החיפוש החדש */
+        .search-box { margin: 20px 0; padding: 15px; border: 1px solid #e2e8f0; border-radius: 12px; display: flex; gap: 10px; justify-content: center; }
+        .input-search { padding: 8px; border: 1px solid #cbd5e1; border-radius: 8px; }
     </style>
 
     <div class="admin-container">
         <h2 class="admin-title">שלום, מנהל המערכת</h2>
         <p class="admin-subtitle">כאן תוכל לנהל את המשתמשים ולצפות בנתוני האתר</p>
+        
+        <div class="search-box">
+            <asp:TextBox ID="txtSearchFName" runat="server" placeholder="שם פרטי" CssClass="input-search" />
+            <asp:TextBox ID="txtSearchLName" runat="server" placeholder="שם משפחה" CssClass="input-search" />
+            <asp:Button ID="btnSearch" runat="server" Text="חפש במערכת" OnClick="BtnSearch_Click" 
+                style="padding: 8px 15px; background: #6c5ce7; color: white; border: none; border-radius: 8px; cursor: pointer;" />
+        </div>
+
         <hr style="border: 0; border-top: 1px solid #e2e8f0;" />
 
         <div class="admin-grid">
